@@ -35,7 +35,7 @@ RUN \
   mkdir -p /app/sabnzbd && \
   curl -o \
     /tmp/sabnzbd.tar.gz -L \
-    "https://github.com/OffBy0x01/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz" && \
+    "https://github.com/OffBy0x01/sabnzbd/archive/refs/tags/${SABNZBD_VERSION}.tar.gz" && \
   tar xf \
     /tmp/sabnzbd.tar.gz -C \
     /app/sabnzbd --strip-components=1 && \
