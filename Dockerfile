@@ -9,7 +9,7 @@ ARG BUILD_DATE
 ARG VERSION
 ARG SABNZBD_VERSION
 LABEL build_version="Linuxserver.io version:- ${VERSION} Build-date:- ${BUILD_DATE}"
-LABEL maintainer="thespad"
+LABEL maintainer="OffBy0x01"
 
 # environment settings
 ENV HOME="/config" \
@@ -29,13 +29,13 @@ RUN \
     python3 && \
   echo "**** install sabnzbd ****" && \
   if [ -z ${SABNZBD_VERSION+x} ]; then \
-    SABNZBD_VERSION=$(curl -s https://api.github.com/repos/sabnzbd/sabnzbd/releases/latest \
+    SABNZBD_VERSION=$(curl -s https://api.github.com/repos/OffBy0x01/sabnzbd/releases/latest \
       | awk '/tag_name/{print $4;exit}' FS='[""]'); \
   fi && \
   mkdir -p /app/sabnzbd && \
   curl -o \
     /tmp/sabnzbd.tar.gz -L \
-    "https://github.com/sabnzbd/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz" && \
+    "https://github.com/OffBy0x01/sabnzbd/releases/download/${SABNZBD_VERSION}/SABnzbd-${SABNZBD_VERSION}-src.tar.gz" && \
   tar xf \
     /tmp/sabnzbd.tar.gz -C \
     /app/sabnzbd --strip-components=1 && \
